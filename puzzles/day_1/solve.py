@@ -12,7 +12,7 @@ def part_1(input: List[int]) -> int:
 def part_2(input: List[int]) -> int:
     s = set(input)
     for j in range(0, len(input)):
-        for k in range(0, len(input)):
+        for k in range(j + 1, len(input)):
             if k == j:
                 continue
             target = 2020 - (input[j] + input[k])
