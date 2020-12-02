@@ -1,8 +1,8 @@
 # adventOfCode2020
 https://adventofcode.com/2020
 
-- [x] day 1
-- [x] day 2
+- [x] [day 1](day_1)
+- [x] [day 2](day_2)
 - [ ] day 3
 - [ ] day 4
 - [ ] day 5
