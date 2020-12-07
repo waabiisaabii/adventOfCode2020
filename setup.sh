@@ -23,14 +23,14 @@ def util(file_uri: str):
 
         input: List[str] = f.read().split('\n')
         result_1 = part_1(input)
-        print('part 1: ' + str(result_1))
+        print("part 1: " + str(result_1))
 
         result_2 = part_2(input)
-        print('part 2: ' + str(result_2))
+        print("part 2: " + str(result_2))
 
 
-util('sample.txt')
-util('input.txt')
+util("sample.txt")
+util("input.txt")
 ' >> $DIR/solve.py
 
 echo "- [ ] [$DIR]($DIR)" >> README.md
