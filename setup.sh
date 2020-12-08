@@ -21,7 +21,7 @@ def util(file_uri: str):
     with open(file_uri) as f:
         print(f"\\nReading {file_uri}")
 
-        input: List[str] = f.read().split("\n")
+        input: List[str] = f.read().split("\\n")
         result_1 = part_1(input)
         print("part 1: " + str(result_1))
 
