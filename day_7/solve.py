@@ -1,7 +1,7 @@
 from typing import List, Dict
 
 
-class TreeNode:
+class GraphNode:
     def __init__(self, value):
         self.children_str_set = set()
         self.value = value
@@ -9,7 +9,7 @@ class TreeNode:
         self.children_count = {}
 
 
-def build_tree_mapping(inputs: List[str]) -> Dict:
+def build_graph_mapping(inputs: List[str]) -> Dict:
     node_maps = {}
 
     for rule in inputs:
@@ -28,7 +28,7 @@ def build_tree_mapping(inputs: List[str]) -> Dict:
             children_freq_map[name] = freq
 
         if parent_str not in node_maps:
-            node_maps[parent_str] = TreeNode(parent_str)
+            node_maps[parent_str] = GraphNode(parent_str)
         parent_node = node_maps[parent_str]
 
         parent_node.children_count = children_freq_map
@@ -38,7 +38,7 @@ def build_tree_mapping(inputs: List[str]) -> Dict:
                 continue
 
             if child_str not in node_maps:
-                node_maps[child_str] = TreeNode(child_str)
+                node_maps[child_str] = GraphNode(child_str)
             child_node = node_maps[child_str]
             child_node.parents_str_set.add(parent_str)
     return node_maps
@@ -46,7 +46,7 @@ def build_tree_mapping(inputs: List[str]) -> Dict:
 
 def part_1(inputs: List[str]) -> int:
     # top down: build tree
-    node_maps = build_tree_mapping(inputs)
+    node_maps = build_graph_mapping(inputs)
 
     # bottom up, trace back
     stack = ['shiny gold']
@@ -63,7 +63,7 @@ def part_1(inputs: List[str]) -> int:
 
 def part_2(inputs: List[str]) -> int:
     # top down: build tree
-    node_maps = build_tree_mapping(inputs)
+    node_maps = build_graph_mapping(inputs)
 
     # top down again, count
     stack = [(1, 'shiny gold')]
