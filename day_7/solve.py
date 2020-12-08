@@ -25,34 +25,13 @@ def build_tree_mapping(inputs: List[str]) -> Dict:
                 continue
             freq = int(s.split(' ')[0])
             name = ' '.join(s.split(' ')[1:-1])
-            # if name == 'other':
-            #     continue
             children_freq_map[name] = freq
-
-        # # to deprecate
-        # children_str_list = [' '.join(x.strip('.').strip().split(' ')[1:-1])
-        #                      for x in children_statement.split(',')]
-        # # to deprecate
-        # children_str_list = list(
-        #     filter(lambda x: x != 'other', children_str_list))
 
         if parent_str not in node_maps:
             node_maps[parent_str] = TreeNode(parent_str)
         parent_node = node_maps[parent_str]
 
         parent_node.children_count = children_freq_map
-        # # to deprecate
-        # parent_node.children_str_set.update(children_str_list)
-
-        # # to deprecate
-        # for child_str in children_str_list:
-        #     if child_str == 'other':
-        #         continue
-        #
-        #     if child_str not in node_maps:
-        #         node_maps[child_str] = TreeNode(child_str)
-        #     child_node = node_maps[child_str]
-        #     child_node.parents_str_set.add(parent_str)
 
         for child_str, _ in children_freq_map.items():
             if child_str == 'other':
@@ -63,8 +42,6 @@ def build_tree_mapping(inputs: List[str]) -> Dict:
             child_node = node_maps[child_str]
             child_node.parents_str_set.add(parent_str)
     return node_maps
-
-
 
 
 def part_1(inputs: List[str]) -> int:
