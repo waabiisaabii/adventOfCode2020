@@ -9,3 +9,4 @@ https://adventofcode.com/2020
 - [x] [day_6](day_6)
 - [x] [day_7](day_7)
 - [x] [day_8](day_8)
+- [ ] [day_9](day_9)
